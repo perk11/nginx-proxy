@@ -1,13 +1,18 @@
 version: "3"
 services:
   nginx-proxy:
-    image: jwilder/nginx-proxy
+    image: jwilder/nginx-proxy:alpine
     container_name: nginx-proxy
     ports:
-      - "80:80"
+    - "80:80"
+    - "443:443"
     volumes:
-      - /var/run/docker.sock:/tmp/docker.sock:ro
-
+    - /var/run/docker.sock:/tmp/docker.sock:ro
+    - /data/certificates:/etc/nginx/certs:ro
+    - /etc/nginx/vhost.d
+    - /usr/share/nginx/html
+    labels:
+      com.github.jrcs.letsencrypt_nginx_proxy_companion.nginx_proxy: Label for let's encrypt container
 networks:
   default:
     external:
