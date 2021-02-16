@@ -1,4 +1,4 @@
-docker-compose file I use to run [jwilder/nginx-proxy](jwilder/nginx-proxy).
+docker-compose file I use to run jwilder/nginx-proxy.
 
 ```
 docker network create nginx-proxy
