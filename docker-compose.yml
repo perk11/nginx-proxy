@@ -1,4 +1,3 @@
-version: "3"
 services:
   nginx-proxy:
     image: jwilder/nginx-proxy:alpine
@@ -16,5 +15,5 @@ services:
       com.github.jrcs.letsencrypt_nginx_proxy_companion.nginx_proxy: Label for let's encrypt container
 networks:
   default:
-    external:
       name: nginx-proxy
+      external: true
