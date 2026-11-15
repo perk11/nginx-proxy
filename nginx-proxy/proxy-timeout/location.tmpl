@@ -1,0 +1,9 @@
+        {{- if $vpath.proxy_timeout }}
+            {{- /* the value goes into the config verbatim, so nothing but an nginx time passes */}}
+            {{- if regexMatch "^[0-9]+[smh]?$" $vpath.proxy_timeout }}
+        proxy_read_timeout {{ $vpath.proxy_timeout }};
+        proxy_send_timeout {{ $vpath.proxy_timeout }};
+            {{- else }}
+        # com.github.perk11.nginx-proxy.proxy-timeout ignored: not a number with an optional s, m or h
+            {{- end }}
+        {{- end }}

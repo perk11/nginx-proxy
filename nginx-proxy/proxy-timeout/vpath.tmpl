@@ -1,0 +1,1 @@
+        {{- $_ := set $vpath_data "proxy_timeout" (groupByLabel $vpath_containers "com.github.perk11.nginx-proxy.proxy-timeout" | keys | first | default "") }}
